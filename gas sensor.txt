@@ -1,0 +1,18 @@
+
+void setup()
+{
+  pinMode(A1, OUTPUT);
+}
+
+void loop()
+{
+  int sensorvalue = analogRead(A0);
+  Serial.print("Gas sensroe Value: ");
+  Serial.println(sensorvalue);
+  if (sensorvalue > 0){
+    digitalWrite(A1, LOW);}
+  
+  else {
+    digitalWrite(A1, HIGH);}
+  //delay(1000); // Wait for 1000 millisecond(s)
+}

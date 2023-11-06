@@ -1,0 +1,31 @@
+
+long duration;
+int distance;
+const int threshold=300;
+
+void setup()
+{
+  pinMode(11, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(5, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  digitalWrite(6, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(6, LOW);
+  duration = pulseIn(5, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  distance = 0.017*duration;
+  if (distance<threshold){
+    digitalWrite(11, HIGH);
+    }
+  else {
+    digitalWrite(11, LOW);
+  }
+  Serial.println("Distance: ");
+  Serial.println(distance);
+  Serial.println("cm");
+}

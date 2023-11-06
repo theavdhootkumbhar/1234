@@ -1,0 +1,36 @@
+
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Enter the color (R, B, or G): ");
+
+}
+
+void loop()
+{
+  char color;
+  Serial.available()!=0;
+
+  color = Serial.read();
+  //color = input('Enter the colour: ');
+  if (color== 'R'){
+    digitalWrite(13, HIGH);
+    delay(1000);
+    digitalWrite(13, LOW);
+  }
+  else if (color=='B'){
+    digitalWrite(11, HIGH);
+    delay(1000);
+    digitalWrite(11, LOW);
+  }
+  else if (color=='G'){
+    digitalWrite(10, HIGH);
+    delay(1000);
+    digitalWrite(10, LOW);
+  }
+  
+}

@@ -1,0 +1,28 @@
+// C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(A1,INPUT);
+  pinMode(12,OUTPUT);
+}
+void loop()
+{
+  float moisture_percentage;
+  int sensor_analog;
+  sensor_analog=analogRead(A1);
+  moisture_percentage=map(sensor_analog,0,1023,0,100);
+  Serial.println("Moisture Percentage:");
+  Serial.println(moisture_percentage);
+  delay(1000);
+  if(moisture_percentage>40)
+  {
+    digitalWrite(12,HIGH);
+    delay(1000);
+  }
+  else
+  {
+    digitalWrite(12,LOW);
+    delay(1000);
+  }
+}

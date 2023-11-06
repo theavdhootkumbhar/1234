@@ -1,0 +1,40 @@
+
+int cnt;
+void setup()
+{
+  pinMode(12, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Enter Counter: ");
+}
+
+void loop()
+{
+  
+    Serial.println(cnt);
+    if (cnt<=10)
+    {
+      digitalWrite(12, HIGH);
+      delay(1000); // Wait for 1000 millisecond(s)
+      digitalWrite(12, LOW);
+      delay(1000);
+      cnt++;
+      }
+    else if (cnt>10 && cnt<=20){
+      digitalWrite(10, HIGH);
+      delay(1000); // Wait for 1000 millisecond(s)
+      digitalWrite(10, LOW);
+      delay(1000);
+      cnt++;
+      
+    }
+    else {
+      digitalWrite(9, HIGH);
+      delay(1000); // Wait for 1000 millisecond(s)
+      digitalWrite(9, LOW);
+      delay(1000);
+      cnt++;
+    }
+  
+}
